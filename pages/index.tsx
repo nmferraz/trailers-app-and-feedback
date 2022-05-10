@@ -9,6 +9,7 @@ import useAuth from '../hooks/useAuth'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
 import useList from '../hooks/useList'
+import { Widget } from '../components/feedback/Widget'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -64,6 +65,7 @@ const Home = ({
           <Row title="Documentaries" slug="docs" movies={documentaries} />
         </section>
       </main>
+      <Widget />
       {showModal && <Modal />}
     </div>
   )
