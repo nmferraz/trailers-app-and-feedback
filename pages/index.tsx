@@ -38,36 +38,40 @@ const Home = ({
   const list = useList(user?.uid)
   if (loading === null) return null
   return (
-    <div
-      className={`relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] ${
-        showModal && '!h-screen overflow-hidden'
-      }`}
-    >
-      <Head>
-        <title>
-          {movie?.title || movie?.original_name || 'Home'} | Netflix | By
-          nmferraz
-        </title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <div
+        className={`relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] ${
+          showModal && '!h-screen overflow-hidden'
+        }`}
+      >
+        <Head>
+          <title>
+            {movie?.title || movie?.original_name || 'Home'} | Netflix | By
+            nmferraz
+          </title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <Header />
-      <main className="relative pl-4 lg:space-y-24 lg:pl-16">
-        <Banner netflixOriginals={netflixOriginals} />
-        <section className="md:space-y-24">
-          {list.length > 0 && <Row title="My List" slug="mylist" movies = {list} />}
-          <Row title="Trending Now" slug="trending" movies={trendingNow} />
-          <Row title="Top Rated" slug="toprated" movies={topRated} />
-          <Row title="Action Thrillers" slug="action" movies={actionMovies} />
-          <Row title="Comedies" slug="comedies" movies={comedyMovies} />
-          <Row title="Scary Movies" slug="scary" movies={horrorMovies} />
-          <Row title="Romance Movies" slug="romance" movies={romanceMovies} />
-          <Row title="Documentaries" slug="docs" movies={documentaries} />
-        </section>
-      </main>
+        <Header />
+        <main className="relative pl-4 lg:space-y-24 lg:pl-16">
+          <Banner netflixOriginals={netflixOriginals} />
+          <section className="md:space-y-24">
+            {list.length > 0 && (
+              <Row title="My List" slug="mylist" movies={list} />
+            )}
+            <Row title="Trending Now" slug="trending" movies={trendingNow} />
+            <Row title="Top Rated" slug="toprated" movies={topRated} />
+            <Row title="Action Thrillers" slug="action" movies={actionMovies} />
+            <Row title="Comedies" slug="comedies" movies={comedyMovies} />
+            <Row title="Scary Movies" slug="scary" movies={horrorMovies} />
+            <Row title="Romance Movies" slug="romance" movies={romanceMovies} />
+            <Row title="Documentaries" slug="docs" movies={documentaries} />
+          </section>
+        </main>
+        {showModal && <Modal />}
+      </div>
       <Widget />
-      {showModal && <Modal />}
-    </div>
+    </>
   )
 }
 

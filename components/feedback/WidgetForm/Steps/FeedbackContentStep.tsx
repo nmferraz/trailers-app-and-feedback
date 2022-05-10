@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowLeft } from "phosphor-react";
 import { FormEvent, useState } from "react";
 import { FeedbackType, feedbackTypes } from "..";
@@ -60,11 +61,7 @@ export function FeedbackContentStep({
           <ArrowLeft weight="bold" className="w-4 h-4" />
         </button>
         <span className="text-xl leading-6 flex items-center gap-2">
-          <img
-            src={feedbackTypeInfo.image.source}
-            alt={feedbackTypeInfo.image.alt}
-            className="w-6 h-6"
-          />
+          <Image src={feedbackTypeInfo.image.source} alt={feedbackTypeInfo.image.alt} className="w-6 h-6" />
           {feedbackTypeInfo.title}
         </span>
         <CloseButton />
