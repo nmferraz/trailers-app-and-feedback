@@ -21,9 +21,6 @@ export function FeedbackContentStep({
   const [screenshot, setScreenshot] = useState<string | null>(null)
   const [comment, setComment] = useState('')
   const [isSensingFeedback, setIsSensingFeedback] = useState(false)
-  {
-    /*avoid creating useState with loading as an name */
-  }
   const feedbackTypeInfo = feedbackTypes[feedbackType]
 
   async function handleSubmitFeedback(event: FormEvent) {
